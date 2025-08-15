@@ -7,9 +7,9 @@
 - Two types:
   - **Executable** → `package main` (must have `func main()`).
   - **Library** → any other name (meant to be imported).
-- Example:
+- Example:  
   ~ utils/
-  strings.go <!-- package utils
+  strings.go <!-- package utils  
   math.go <!-- package utils
 
 ## 2. Module
@@ -20,8 +20,8 @@
 - **Module path** (base import path)
 - Go version
 - Dependencies and versions
-- Example:
-  ```go.mod
+- Example (`go.mod`):
+  ```go
   module github.com/sanavi/myproject
   go 1.22
   ```
@@ -31,7 +31,7 @@
 - A **module** can contain **multiple packages** in subdirectories.
 - Import path = **`module path` + `/` + `relative folder path`**.
 - Example:
-  ```Project File
+  ```go
   import github.com/sanavi/myproject/utils
   import github.com/sanavi/myproject/services
   ```
@@ -54,12 +54,11 @@ import "github.com/sanavi/myproject/utils"
 
 - For libraries (like utils):
 
-* Just import them in your code.
-* `go build` or `go run` will fetch and compile them automatically.
+  - Just import them in your code.
+  - `go build` or `go run` will fetch and compile them automatically.
 
 - For executables (CLI tools):
-
-* Use `go install <module-path>@<version>` to build and place the binary locally.
+  - Use `go install <module-path>@<version>` to build and place the binary locally.
 
 # `go` commands
 
