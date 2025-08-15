@@ -4,6 +4,8 @@
 
 - **Smallest unit of code organization** in Go.
 - A **package** = one directory containing `.go` files **with the same `package <name>`** declaration (where `name` is the path relative to the base path defined in `go.mod` using `module` keyword.)
+- Conventionallly directory name and package name should be same.
+- The functions to be exported from the package should _start with a CAPITAL LETTER_
 - Two types:
   - **Executable** → `package main` (must have `func main()`).
   - **Library** → any other name (meant to be imported).
