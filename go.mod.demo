@@ -1,0 +1,11 @@
+module <remote>/<username>/<module_name>
+go 1.23.1
+
+// Asks to use local copy of module instead of remote one - rarely used
+// But imported normally as `import <alias> <remote_module_import_path>` in the file where it is required
+// No need for the module to be actually present remotely when using the local module
+replace <remote_module_import_path> v0.0.0 => <local_path>/<dependency_module_name> 
+
+require (
+  <remote_module_import_path> v0.0.0
+)

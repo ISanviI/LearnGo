@@ -7,7 +7,7 @@ import (
 	"os"
 )
 
-func main() {
+// func main() {
 	// **Functions**
 	// Note that functions by default in GO are 'call by value' and not 'call by reference' unless you explicitly pass address using `&` like in C/C++.
 	add(3, 4) // Calling the add function
