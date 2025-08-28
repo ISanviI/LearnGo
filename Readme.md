@@ -10,7 +10,7 @@
 - **Smallest unit of code organization** in Go.
 - A **package** = one directory containing `.go` files **with the same `package <name>`** declaration (where `name` is the path relative to the base path defined in `go.mod` using `module` keyword.)
 - Conventionally directory name and package name should be same.
-- The functions to be exported from the package should _start with a CAPITAL LETTER_
+- The functions to be exported (or public) from the package should _start with a CAPITAL LETTER_
 - Two types:
   - **Executable** → `package main` (must have `func main()`).
   - **Library** → any other name (meant to be imported).
@@ -103,9 +103,12 @@ import "github.com/sanavi/myproject/utils"
 - Downloads the module source into the local module cache `$GOPATH/pkg/mod`.
 - Makes it available for compilation.
 
-3. `go build` - Compiles the program and creates an executable file in the current directory but for packages, it doesn't create them, however it is useful for debugging and testing. (called using `./project_name`)
+3. `go build` - Compiles the program and creates an executable file in the current directory but for packages (that are not main), it doesn't create them, however it is useful for debugging and testing. (called using `./project_name`)
 4. `go run` - Compiles and runs the program in one step, useful for quick testing
-5. `go mod tidy` - Keeps your module dependencies clean and correct.
+5. `go mod tidy` - This command removes any dependencies that are no longer needed and adds any missing dependencies required by the project. It ensures that the go.mod and go.sum files are up to date.
+6. `go mod init github.com/yourusername/yourproject` - This command initializes a new module in the current directory and creates a go.mod file.
+7. `go mod vendor` - This command will create a vendor directory in your project with all the dependencies containing stuff only required for this project. Helpful to avoid network overhead (Optional)
+8. `go mod download` - This command downloads the dependencies specified in the go.mod file to the local module cache. It ensures that all required dependencies are available for the project.
 
 - Adds missing entries → Ensures go.mod/go.sum include everything your code actually imports.
 - Removes unused entries → Cleans out modules not used anywhere in your project.
@@ -183,3 +186,15 @@ import "github.com/sanavi/myproject/utils"
 - Design the architecture, name the components, document the details.
 - Documentation is for users.
 - Don’t panic.
+
+# Miscellaneous Notes
+
+## Typical use cases of source command:
+
+1. Reloading shell config after editing:
+   `source ~/.bashrc`
+   (so you don’t have to close & reopen the terminal)
+2. Activating virtual environments:
+   `source venv/bin/activate`
+3. Loading env vars from a file:
+   `source .env`

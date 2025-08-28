@@ -3,6 +3,10 @@ package main
 import "fmt"
 
 // The `fmt` package in Go provides functions for formatted I/O, similar to C's printf and scanf.
+// fmt (Format):
+// Primarily designed for general-purpose text formatting and printing to standard output (stdout).
+// log (Logging):
+// Specifically designed for logging application events and messages. It's intended for recording information about the program's execution, errors, and other significant occurrences, typically to standard error (stderr) or a file.
 
 // func main() {
 	// **Variables**
